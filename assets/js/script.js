@@ -25,7 +25,7 @@ for (let button of buttons) {
  * The main game function. Accepts one parameter, which
  * is the data-choice value of the selected button
  */
-function playGAme(playerChoice) {
+function playGame(playerChoice) {
 
     playerImage.src = `assets/images/${choices[playerChoice]}.png`;
     playerImage.alt = choices[playerChoice];
