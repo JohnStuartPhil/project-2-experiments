@@ -2,14 +2,32 @@
  * Declare constants for DOM elements
  * and possible choices
  */
-const buttons = document.getElementsByClassName("control");
-const playerScore = document.getElementById("player-score");
-const computerScore = document.getElementById("computer-score");
-const playerImage = document.getElementById("player-image");
-const computerImage = document.getElementById("computer-image");
-const messages = document.getElementById("messages");
-const choices = ["rock", "paper", "scissors"];
-
+let buttons;
+let playerScore ;
+let computerScore ;
+let playerImage ;
+let computerImage ;
+let messages ;
+let choices = ["rock", "paper", "scissors"];
+const rpsGame = `
+<div>
+    <div>
+        <p>Make a choice:</p>
+        <button aria-label="Rock" data-choice="0" class="control">Rock</button>
+        <button aria-label="Paper" data-choice="1" class="control">Paper</button>
+        <button aria-label="Scissors" data-choice="2" class="control">Scissors</button>
+    </div>
+    <div id="messages"></div>
+    <div class="player">
+        <h3 class="scores">Your score: <span id="player-score">0</span></h3>
+        <img id="player-image" src="assets/images/rps.png" alt="Rock Paper Scissors">
+    </div>
+    <div class="computer">
+        <h3 class="scores">Computer score: <span id="computer-score">0</span></h3>
+        <img id="computer-image" src="assets/images/rps.png" alt="Rock Paper Scissors">
+    </div>
+</div>
+`
 
 function addListenersToControlButtons() {
     /**
@@ -27,7 +45,7 @@ function addListenersToControlButtons() {
 function getPlayerChoice(event) {
     let playerChoice = event.target.getAttribute("data-choice");
     playGame(playerChoice);
-} 
+}
 
 function removeListenersFromControlButtons() {
     for (let button of buttons) {
@@ -105,4 +123,25 @@ function updateMessage(result) {
     messagesDiv.innerHTML = message;
 }
 
-addListenersToControlButtons();
+// addListenersToControlButtons();
+
+function addStartMenuListeners() {
+    let startButton = document.getElementById("start-game")
+    startButton.addEventListener("click", startRPSGame)
+}
+
+function startRPSGame() {
+    let gameArea = document.getElementById("game-area")
+    gameArea.innerHTML = rpsGame
+    buttons = document.getElementsByClassName("control");
+playerScore = document.getElementById("player-score");
+computerScore = document.getElementById("computer-score");
+playerImage = document.getElementById("player-image");
+computerImage = document.getElementById("computer-image");
+messages = document.getElementById("messages");
+choices = ["rock", "paper", "scissors"];
+    addListenersToControlButtons()
+}
+
+
+addStartMenuListeners()
