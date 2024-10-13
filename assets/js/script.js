@@ -19,11 +19,11 @@ const rpsGame = `
     </div>
     <div id="messages"></div>
     <div class="player">
-        <h3 class="scores">Your score: <span id="player-score">0</span></h3>
+        <h2 class="scores">Your score: <span id="player-score">0</span></h2>
         <img id="player-image" src="assets/images/rps.png" alt="Rock Paper Scissors">
     </div>
     <div class="computer">
-        <h3 class="scores">Computer score: <span id="computer-score">0</span></h3>
+        <h2 class="scores">Computer score: <span id="computer-score">0</span></h2>
         <img id="computer-image" src="assets/images/rps.png" alt="Rock Paper Scissors">
     </div>
 </div>
